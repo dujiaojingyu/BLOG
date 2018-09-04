@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{# 标题 #}
+{% block title %}我的网站|错误{% endblock %}
+{# 首页选中 #}
+{% block nav-home %}active{% endblock %}
+
+{# 内容 #}
+{% block content %}
+    {{ message }}， <a href="{{ referer_to }}">返回</a>
+{% endblock %}

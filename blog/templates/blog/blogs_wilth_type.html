@@ -1,0 +1,8 @@
+{% extends 'blog/blog_list.html' %}
+
+{# 页面标题 #}
+{% block title %}{{ blog_type.type_name }}{% endblock %}
+
+{% block blog-list-title %}
+    <p>博客分类:<a href="{% url 'blogs_wilth_type' blog_type.id %}">{{ blog_type }}</a></p>
+{% endblock %}

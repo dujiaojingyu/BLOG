@@ -1,0 +1,17 @@
+.home-content{
+    font-size: 222%;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.hot_blog_style ul{
+    list-style-type: none;
+    text-align: center;
+}
+div#container{
+    margin: 0 auto;
+    height: 20em;
+    min-width: 50em;
+    max-width: 80em;
+}
