@@ -47,21 +47,20 @@
                 </div>
             </div>
         </div>
-
+        {# 评论 #}
         <div class="row">
             <div class="col-xs-10 col-md-offset-1">
+                {# 提交评论 #}
                 <div class="comment-area">
                     <h3 class="comment-area-title">提交评论</h3>
                     {% if user.is_authenticated %}
                     {# 后端不用传user也可以访问，是由于Django的机制，TEMPLATES中有添加渲染 #}
-
                         <form action="{% url 'update_comment' %}" method="POST" style="overflow: hidden">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="comnent-text">{{ user.username }}，欢迎评论!</label>
                                 <textarea class="form-control" id="comnent-text" name="text"></textarea>
                             </div>
-
                             <input type="hidden" name="object_id" value="{{ blog.id }}">
                             <input type="hidden" name="content_type" value="blog">
                             <input type="submit" value="评论" class="btn btn-primary btn-sm" style="float: right">
@@ -77,11 +76,12 @@
                         </a>
                     {% endif %}
                 </div>
+                {# 评论列表区 #}
                 <div class="comment-area">
-                    <h3 class="comment-area-title">评论列表区</h3>
+                    <h3 class="comment-area-title">评论列表</h3>
                     {% for commnet in commnets %}
                         <p>
-                            {{ user.username }}
+                            {{ commnet.user }}
                             {{ commnet.comment_time|date:'Y-m-d H:n:s' }}:
                             {{ commnet.text }}
                         </p>

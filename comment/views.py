@@ -13,6 +13,7 @@ def update_comment(request):
         context['message'] = '用户未登录'
         context['referer_to'] = referer
         return render(request,'error.html',context)
+
     text = request.POST.get('text',None).strip()
     if not text:
         context['message'] = '评论不能为空'
@@ -35,5 +36,4 @@ def update_comment(request):
     comment.content_object = model_obj
     comment.save()
 
-    print(referer)
     return redirect(referer)

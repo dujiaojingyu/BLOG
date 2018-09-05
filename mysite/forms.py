@@ -25,6 +25,7 @@ class LoginForm(forms.Form):
 
 
 class RegisterForm(forms.Form):
+
     username = forms.CharField( max_length=30,
                                 min_length=3,
                                 label='用户名',widget=forms.TextInput(

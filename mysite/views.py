@@ -61,7 +61,8 @@ def login(request):
             user = login_form.cleaned_data['user']  #获取用户
             auth.login(request, user)               #登录
             # Redirect to a success page.
-            return redirect(request.GET.get("from",reverse('home'))) #跳转回原页面
+            print(reverse('home'))
+            return redirect(request.GET.get("from",reverse('home'))) #跳转回原页面,最先获取from数据，没有则用reverse('home')代替
     else:
         login_form = LoginForm()
 
@@ -72,20 +73,20 @@ def login(request):
 
 def register(request):
     """注册"""
-    register_form = RegisterForm(request.POST)
-    if register_form.is_valid():
-        username = register_form.cleaned_data['username']
-        email = register_form.cleaned_data['email']
-        password = register_form.cleaned_data['password']
-        user = User.objects.create_user(username,email,password)#创建注册用户并设置密码
-        user.save()
-        # Redirect to a success page.
-        user = auth.authenticate(username=username, password=password)
-        auth.login(request,user)
-        return redirect(request.GET.get("from",reverse('home')))
+    if request.method == "POST":
+        register_form = RegisterForm(request.POST)
+        if register_form.is_valid(): #执行is_valid()会执行在form.py的 clean等系列的函数
+            username = register_form.cleaned_data['username']
+            email = register_form.cleaned_data['email']
+            password = register_form.cleaned_data['password']
+            user = User.objects.create_user(username,email,password)#创建注册用户并设置密码
+            user.save()
+            # Redirect to a success page.
+            user = auth.authenticate(username=username, password=password)
+            auth.login(request,user)
+            return redirect(request.GET.get("from",reverse('home')))
     else:
         register_form = RegisterForm()
-
     context = {}
     context['register_form'] = register_form
     return render(request,'register.html',context)
