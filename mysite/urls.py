@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings         #引入配置
 from django.conf.urls.static import static # 引入static方法
+from django.contrib.auth import login
 from mysite import views
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,8 +25,8 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')), # 配置ckeditor的URL路径
     path('comnent/', include('comment.urls')),
-    path('login/',views.login, name='login'),
-    path('register/',views.register, name='register'),
+    path('account/', include('account.urls')),
+
 ]
 
 #暂时这样配置

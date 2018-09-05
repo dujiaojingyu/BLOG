@@ -2,11 +2,12 @@ from django.shortcuts import render,get_object_or_404
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.db.models import Count
+from read_statistics.utils import read_statistics_once_read
 from .models import Blog,BlogType
 # from .models import ReadNum
 from mysite import settings
 from comment.models import Comment
-from read_statistics.utils import read_statistics_once_read
+from comment.forms import CommentForm
 # Create your views here.
 
 # each_page_blogs_number = 2
@@ -113,6 +114,7 @@ def blog_detail(request,blog_id):
     previous_blog = Blog.objects.filter(created_time__gt=blog.created_time).last()
     next_blog = Blog.objects.filter(created_time__lt=blog.created_time).first()
     context = {}
+    context['comment_Form'] = CommentForm(initial={'content_type':blog_content_type,'object_id':blog.id})
     context['commnets'] = commnets
     context['previous_blog'] = previous_blog
     context['next_blog'] = next_blog

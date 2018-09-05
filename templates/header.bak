@@ -1,19 +1,5 @@
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock %}</title>
-{#    <link rel="stylesheet" href="/static/base.css"/>#}
-    <link rel="stylesheet" href="{% static 'base.css' %}">
-    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}"/>
-    {% block home-extends %}{% endblock %}
-</head>
-<body>
-    {# 头部 #}
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
               <!-- 个人博客网站 -->
             <div class="navbar-header">
@@ -44,7 +30,7 @@
                                 </button>
                                 <ul class="dropdown-menu" style="min-width: 90px">
                                 <li class="text-center">
-                                    <a href="{% url 'account:password_change' %}">修改密码</a>
+                                    <a href="#">修改密码</a>
                                     <a href="#">个人信息</a>
                                     <a href="#">后台管理</a>
                                 </li>
@@ -53,29 +39,15 @@
                         </li>
 
                         <li style="margin-right: 20px">
-                            <a href="{% url 'account:logout' %}?from={{ request.get_full_path }}">退出</a>
+                            <a href="{% url 'logout' %}?from={{ request.get_full_path }}">退出</a>
                         </li>
                     </ul>
                 {% else %}
                     <ul class="nav navbar-nav navbar-right">
-                        <li style="margin-right: 20px"><a href="{% url 'account:login' %}?from={{ request.get_full_path }}">登录</a></li>
-                        <li style="margin-right: 20px"><a href="{% url 'account:register' %}?from={{ request.get_full_path }}">注册</a></li>
+                        <li style="margin-right: 20px"><a href="{% url 'login' %}?from={{ request.get_full_path }}">登录</a></li>
+                        <li style="margin-right: 20px"><a href="{% url 'register' %}?from={{ request.get_full_path }}">注册</a></li>
                     </ul>
                 {% endif %}
             </div>
         </div>
     </div>
-
-    {# 内容 #}
-    {% block content %}{% endblock %}
-
-
-    <script src="{% static 'jquery-3.3.1.js' %}"></script>
-    <script src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
-
-    {# 扩展的js #}
-    {% block extents_js %}{% endblock %}
-
-
-</body>
-</html>
