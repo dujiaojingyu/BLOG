@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5811c7d-cf4d-40b5-b912-e99c68003a1c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_subject.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/comment/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_statistics/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_statistics/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -225,7 +208,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="52" />
     <option name="y" value="21" />
     <option name="width" value="1275" />
