@@ -34,14 +34,14 @@ class RegisterForm(forms.Form):
                             label="邮箱", widget=forms.EmailInput(
                             attrs={'class': 'form-control', 'placeholder': '请输入邮箱'}))
 
-    password = forms.CharField( min_length=6,
+    password = forms.CharField( min_length=8,
                                 max_length=18,
                                 label='密码',widget=forms.PasswordInput(
-                                attrs={'class':'form-control','placeholder':'请输入6-18位密码'}))
-    password2 = forms.CharField(min_length=6,
+                                attrs={'class':'form-control','placeholder':'请输入8-18位密码'}))
+    password2 = forms.CharField(min_length=8,
                                 max_length=18,
                                 label='确认密码', widget=forms.PasswordInput(
-                                attrs={'class': 'form-control', 'placeholder': '请再次输入6-18位密码'}))
+                                attrs={'class': 'form-control', 'placeholder': '请再次输入8-18位密码'}))
 
     def clean_username(self):
         username = self.cleaned_data['username']

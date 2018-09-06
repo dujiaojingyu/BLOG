@@ -8,7 +8,7 @@ from django.contrib.contenttypes.models import ContentType
 
 class ReadNum(models.Model):
     read_num = models.IntegerField(default=0)
-    content_type = models.ForeignKey(ContentType, on_delete=models.DO_NOTHING)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
@@ -24,6 +24,6 @@ class ReadNumExpandMethod():
 class ReadDetail(models.Model):
     date = models.DateField(default=timezone.now)
     read_num = models.IntegerField(default=0)
-    content_type = models.ForeignKey(ContentType, on_delete=models.DO_NOTHING)   #获取关联的模型，这个外键对应数据库中所有的模型
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)   #获取关联的模型，这个外键对应数据库中所有的模型
     object_id = models.PositiveIntegerField()                                    #储存相关模型的主键值
     content_object = GenericForeignKey('content_type', 'object_id')              #储存类型为content_type，和id为object_id的博客文章

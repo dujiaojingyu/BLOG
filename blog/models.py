@@ -21,10 +21,10 @@ class BlogType(models.Model):
 class Blog(models.Model,ReadNumExpandMethod):
     """博客文章"""
     title = models.CharField(max_length=50)
-    blog_type = models.ForeignKey(BlogType,on_delete=models.DO_NOTHING)
+    blog_type = models.ForeignKey(BlogType,on_delete=models.CASCADE)
     # content = RichTextField()                    #使用ckeditor编辑器(不带图片上传)
     content = RichTextUploadingField()             #使用ckeditor编辑器(带图片上传)
-    author = models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
     read_details = GenericRelation(ReadDetail)
     created_time = models.DateTimeField(auto_now_add=True)
     last_updated_time = models.DateTimeField(auto_now=True)
@@ -51,5 +51,5 @@ class Blog(models.Model,ReadNumExpandMethod):
 #自定义二 计数功能优化
 class ReadNum(models.Model):
     read_num = models.IntegerField(default=0)
-    blog = models.OneToOneField(Blog,on_delete=models.DO_NOTHING)
+    blog = models.OneToOneField(Blog,on_delete=models.CASCADE)
 """

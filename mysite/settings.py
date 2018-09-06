@@ -169,3 +169,13 @@ CACHES = {
         'LOCATION': 'my_cache_table',
     }
 }
+
+
+#邮件配置
+EMAIL_HOST = "smtp.163.com"   # 服务器
+EMAIL_PORT = 25               # 一般情况下都为25
+EMAIL_HOST_USER = "hsj1282005283@163.com"   # 账号
+EMAIL_HOST_PASSWORD = "hsj424212"  # 密码
+EMAIL_USE_TLS = True             # 一般都为False
+EMAIL_USE_SSL = False    #是否使用SSL加密，qq企业邮箱要求使用
+DEFAULT_FROM_EMAIL = "hsj1282005283@163.com"

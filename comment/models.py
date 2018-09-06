@@ -8,8 +8,8 @@ class Comment(models.Model):
     """评论"""
     text = models.TextField()
     comment_time = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User,on_delete=models.DO_NOTHING)
-    content_type = models.ForeignKey(ContentType, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 

@@ -6,6 +6,8 @@
 {# 首页选中 #}
 {% block nav-home %}active{% endblock %}
 
+{% block hidden %}hide{% endblock %}
+
 {# 内容 #}
 {% block content %}
     <div class="container">
@@ -13,7 +15,15 @@
             <div class="col-xs-4 col-xs-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">登录</h3>
+                        <div>
+                            <h3 style="display: inline">登录</h3>
+                            <span class="col-xs-offset-4">
+                                <a href="{% url 'account:register' %}">
+                                    还未有账号？请注册~~
+                                </a>
+                            </span>
+                        </div>
+
                     </div>
                     <div class="panel-body">
                         <form action="" method="POST">
@@ -26,9 +36,9 @@
                             <span class="text-danger pull-left" id="error-style">
                                 {{ login_form.non_field_errors }}
                             </span>
-{#                            {{ login_form }}#}
                             <input type="submit" value="登录" class="btn btn-primary btn-sm pull-right" />
                         </form>
+                        <div class="col-xs-offset-7"><a href="{% url 'account:password_reset' %}">忘记密码？</a></div>
                     </div>
                 </div>
             </div>

@@ -35,4 +35,39 @@ urlpatterns = [
             template_name='account/password_change_done.html'
         ),
         name='password_change_done'),
+
+    # 密码重置邮件发送
+    re_path(r'^password-reset/$',
+        auth_views.PasswordResetView.as_view(
+            template_name = 'account/password_reset_form.html',
+            email_template_name = 'account/password_reset_email.html',
+            subject_template_name = 'account/password_reset_subject.txt',
+            success_url = reverse_lazy('account:password_reset_done'),
+        ),
+        name='password_reset'),
+
+    # 密码重置邮件发送完成
+    re_path(r'^password-reset-done/$',
+        # auth_views.password_reset_done,
+        auth_views.PasswordResetDoneView.as_view(
+            template_name = 'account/password_reset_done.html',
+        ),
+        name='password_reset_done'),
+
+    # 密码重置确认
+    re_path(r'^password-reset-confirm/(?P<uidb64>[-\w]+)/(?P<token>[-\w]+)/$',
+
+        auth_views.PasswordResetConfirmView.as_view(
+            template_name = 'account/password_reset_confirm.html',
+            success_url = reverse_lazy('account:password_reset_complete')
+        ),
+        name='password_reset_confirm'),
+
+    # 密码重置成功
+    re_path(r'^password-reset-complete/$',
+        # auth_views.password_reset_complete,
+        auth_views.PasswordResetCompleteView.as_view(
+            template_name = 'account/password_reset_complete.html',
+        ),
+        name='password_reset_complete'),
 ]

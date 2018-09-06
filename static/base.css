@@ -14,3 +14,8 @@ body {
     list-style-type: none;
 
 }
+#reset_style {
+    position: relative;
+    float: left;
+    margin-left: 180px;
+}
